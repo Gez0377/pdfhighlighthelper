@@ -86,11 +86,13 @@ return
 ; Ctrl+5
 ^5::
 SetColour(480, 181)
+return
 
 ;explanation:green
 ;ctrl+6
 ^6::
 SetColour(408, 177)
+return
 
 ;point:blue
 ;ctrl+7
