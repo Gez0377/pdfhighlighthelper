@@ -2,7 +2,7 @@
 Change pdf highlight color.
 
 PS: 
-- For Adobe Reader or Adobe Acrobat (Chinese Simplified Interface) ONLY.
+- For Xchange Viewer ONLY.
 - English Application Language see: https://gist.github.com/jtanx/09c8f0e6f31ecb61c3d5d3faddbaf559
 
 # PDF 高亮颜色修改助手
@@ -15,9 +15,7 @@ Adobe Reader DC 中文版测试通过。
 
 使用说明：
 1. 只能作用于已经高亮的部分（可以使用“键盘或鼠标右键+h”快速标记高亮）。
-2. 需要保持“属性栏”为打开状态（快捷键 Ctrl+e）。
-3. 使用Ctrl+1~5，修改颜色（红>绿>蓝>紫>黄）。
-4. 颜色选择，部分参考Civati的使用手册。
+3. 使用Ctrl+1~5，修改颜色。
 5. 程序的DPI缩放可能会影响使用。
 
 ![image](https://github.com/kongsn/pdfhighlighthelper/blob/master/PdfHH_Sample-Video.gif)
