@@ -1,45 +1,54 @@
 /*
-PDF 高亮颜色修改助手
-Version: v1.0
-Author: KONGSN
+PDF highligheter
+Version: v1.1
+Author: Gez Magpie
 
-使用Autohotkey模拟手动修改颜色操作，缩短高亮颜色修改时间。
-Adobe 中文版测试通过。
+hot key setting for xchange Viewer
 
-使用说明：
-1. 只能作用于已经高亮的部分（可以使用“键盘或鼠标右键+h”快速标记高亮）。
-2. 需要保持“属性栏”为打开状态（快捷键 Ctrl+e）。
-3. 使用Ctrl+1~5，修改颜色（红>绿>蓝>紫>黄）。
-4. 颜色选择，部分参考Civati的使用手册。
-5. 程序的DPI缩放可能会影响使用。
+Manual：
+1. only work for part already highlighted defaultly（可以使用“键盘或鼠标右键+h”快速标记高亮）。
+3. 使用Ctrl+1~5，change the colour
 
-致谢：
+Thanks：
+原版本作者kongsn，
+https://github.com/kongsn/pdfhighlighthelper
+
 原版本作者jtanx，
 https://gist.github.com/jtanx/09c8f0e6f31ecb61c3d5d3faddbaf559
 用于Acrobat DC
 */
 
 
-msgbox, PDF高亮颜色修改助手（适用于Adobe中文版）:`r`n    1. 只能作用于已经高亮的部分;`r`n    2. 需要保持“属性栏”为打开状态（快捷键 Ctrl+e）;`r`n    3. Ctrl+1~5修改颜色:`r`n        3.1 Ctrl+1: 红色;`r`n        3.2 Ctrl+1: 绿色;`r`n        3.3 Ctrl+1: 蓝色;`r`n        3.4 Ctrl+1: 紫色;`r`n        3.5 Ctrl+1: 黄色.
+msgbox, PDF highligheter assistancer（for xchange viewer）:`r`n    1. only work for part already highlighted defaultly;`r`n    2. Ctrl+1~5change the colour:`r`n        3.1 Ctrl+1: shallow green;`r`n        3.2 Ctrl+1: 绿色;`r`n        3.3 Ctrl+1: 蓝色;`r`n        3.4 Ctrl+1: 紫色;`r`n        3.5 Ctrl+1: 黄色.
 
 
 SetColour(x, y)
 {
-    If WinExist("属性 ahk_class AVL_AVFloating") or WinExist("高亮属性 ahk_class AVL_AVFloating")
+	MouseClick, Right
+	
+	CoordMode, Mouse, Screen
+	MouseGetPos, origX, origY
+	sleep 30
+	MouseClick, Left, origX+93, origY+251
+	sleep 200
+	
+    If WinExist("ahk_class #32770")
     {
         WinActivate
         WinWaitActive
         if !ErrorLevel
         {
-            CoordMode, Mouse, Screen
-            MouseGetPos, oldX, oldY
             CoordMode, Mouse, Relative
             
-            MouseClick, Left, 30, 30   ; Activate the palette
+            MouseClick, Left, 359, 80   ; Activate the palette
+			sleep 30	;程序反应慢，得多等等
             MouseClick, Left, x, y     ; Select the colour.
-            
+            sleep 10
+			MouseClick, Left, 494, 492	;confirm yes
+			
+			;回到初始位置
             CoordMode, Mouse, Screen
-            MouseMove, oldX, oldY
+            MouseMove, origX, origY
             CoordMode, Mouse, Relative
         }
     }
@@ -49,32 +58,42 @@ SetColour(x, y)
 ; AHK: ^ is Ctrl, ! is Alt, + is shift
 
 
-; 重要内容：红色
+; Contribution and work：shallow green
 ; Ctrl+1  
 ^1::
-SetColour(20, 100) 
+SetColour(408, 199) 
 return
 
-; 结果、结论、总结：绿色
+; Consquence and success: duck blue
 ; Ctrl+2
 ^2::
-SetColour(75, 135)
+SetColour(426, 142)
 return
 
-; 研究方法、数据来源：蓝色
+; unknown need further work：pink
 ; Ctrl+3
 ^3::
-SetColour(110, 115)
+SetColour(352, 198)
 return
 
-; 分析、评论：紫色
+; advantage：gold
 ; Ctrl+4
 ^4::
-SetColour(20, 115)
+SetColour(375, 184)
 return
 
-; 普通默认黄色
+; disadvantage: silver
 ; Ctrl+5
 ^5::
-SetColour(55, 120)
+SetColour(480, 181)
+
+;explanation:green
+;ctrl+6
+^6::
+SetColour(408, 177)
+
+;point:blue
+;ctrl+7
+^7::
+SetColour(425, 179)
 return
