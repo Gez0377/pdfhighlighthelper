@@ -10,9 +10,6 @@ Manual：
 3. 使用Ctrl+1~5，change the colour
 
 Thanks：
-原版本作者kongsn，
-https://github.com/kongsn/pdfhighlighthelper
-
 原版本作者jtanx，
 https://gist.github.com/jtanx/09c8f0e6f31ecb61c3d5d3faddbaf559
 用于Acrobat DC
@@ -98,4 +95,16 @@ return
 ;ctrl+7
 ^7::
 SetColour(425, 179)
+return
+
+;comments:shallow blue
+;ctrl+8
+^8::
+SetColour(443, 180)
+return
+
+;goals:brown
+;ctrl+9
+^9::
+SetColour(374, 199)
 return
